@@ -50,7 +50,7 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
           //       )
           //     :
           Container(
-            color: ColorForDesign().darkgreen,
+            color: ColorForDesign().green,
             height: MediaQuery.of(context).size.height / 4,
             child: Column(
               children: [
@@ -67,7 +67,7 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
                           padding: const EdgeInsets.only(top: 8),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(1000.0),
-                            child: Image.asset('assets/LOGOexchange.jpg'),
+                            child: Image.asset('assets/LOGOexchange.png'),
                           ),
                         ),
                       ),

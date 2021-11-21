@@ -69,10 +69,16 @@ class HomeScreen extends StatelessWidget {
       body: ListView.builder(
           itemCount: modelOflist.length,
           itemBuilder: (_, i) {
-            return HotelListView(
-              describtion: modelOflist[i].des,
-              name: modelOflist[i].namOfItem,
-              ImageForpost: modelOflist[i].imagesForitem,
+            return GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(
+                    context, nameroute.nameRouote_SupCattogryScreen);
+              },
+              child: CatgoryListView(
+                describtion: modelOflist[i].des,
+                name: modelOflist[i].namOfItem,
+                ImageForpost: modelOflist[i].imagesForitem,
+              ),
             );
           }),
       drawer: DrawerForAPP(),
@@ -86,10 +92,10 @@ class HomeScreen extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(
-                        context, nameroute.nameRouote_ExChangForAll);
+                        context, nameroute.nameRouote_DonationScreen);
                   },
                   child: cardForexchange(
-                    text: "Metaphor",
+                    text: "Donation",
                     RadiusforCard: true,
                   ),
                 ),
@@ -99,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                         context, nameroute.nameRouote_ExChangForAll);
                   },
                   child: cardForexchange(
-                    text: "Exchange",
+                    text: "Exchang",
                     RadiusforCard: false,
                   ),
                 ),

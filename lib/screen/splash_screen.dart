@@ -27,7 +27,7 @@ class _SplashscreenState extends State<Splashscreen> {
               fontSize: 20.0,
               color: ColorForDesign().green),
         ),
-        image: Image.asset('assets/LOGOexchange.jpg',
+        image: Image.asset('assets/LOGOexchange.png',
             height: MediaQuery.of(context).size.height / 3),
         backgroundColor: ColorForDesign().white,
         photoSize: 200.0,

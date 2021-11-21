@@ -1,76 +1,18 @@
 import 'package:exchange/colors.dart';
 import 'package:flutter/material.dart';
 
-class ExchangeScreen extends StatefulWidget {
-  const ExchangeScreen({Key? key}) : super(key: key);
+class DonationForMainScreen extends StatefulWidget {
+  const DonationForMainScreen({Key? key}) : super(key: key);
 
   @override
-  _ExchangeScreenState createState() => _ExchangeScreenState();
+  _DonationForMainScreenState createState() => _DonationForMainScreenState();
 }
 
-class Modelitem {
-  late String name;
-  late String imageForcard;
-  late String description;
-  Modelitem(
-      {required this.description,
-      required this.imageForcard,
-      required this.name});
-}
-
-List<Modelitem> itemList = [
-  Modelitem(
-      name: "T-shirt",
-      imageForcard:
-          'https://i5.walmartimages.com/asr/93a95865-296f-4bf4-b15d-c8709a4ccdff.64a6cc18098dee727fc4ffbf229bb5fb.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
-      description: "good material and very nice looking"),
-  Modelitem(
-      name: "back bag",
-      imageForcard:
-          "https://img3.exportersindia.com/product_images/bc-full/dir_110/3270209/leather-backpack-bags-green-colour-1465548.jpg",
-      description:
-          "to put you book items and other things like pencil or pen ,and clothesto put you book items and other things like pencil or pen ,and clothes"),
-  Modelitem(
-    imageForcard:
-        "https://myboredtoddler.com/wp-content/uploads/2018/02/color-recognition-scavenger-hunt-for-toddlers-e1519348310933.jpg",
-    name: "Scavenger Hunt",
-    description: "good for food, vegetable and fruit ",
-  ),
-  Modelitem(
-      name: "mug",
-      imageForcard:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQX7FRHnU1AvmU1a-_BdEX_NGunyp_dj0gxLmkinLMxCg4HBZO7WewOnM_GmikMwhUnLA&usqp=CAU",
-      description: ""),
-  Modelitem(
-      name: "T-shirt",
-      imageForcard:
-          'https://i5.walmartimages.com/asr/93a95865-296f-4bf4-b15d-c8709a4ccdff.64a6cc18098dee727fc4ffbf229bb5fb.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
-      description: "good material and very nice looking"),
-  Modelitem(
-      name: "back bag",
-      imageForcard:
-          "https://img3.exportersindia.com/product_images/bc-full/dir_110/3270209/leather-backpack-bags-green-colour-1465548.jpg",
-      description:
-          "to put you book items and other things like pencil or pen ,and clothesto put you book items and other things like pencil or pen ,and clothes"),
-  Modelitem(
-    imageForcard:
-        "https://myboredtoddler.com/wp-content/uploads/2018/02/color-recognition-scavenger-hunt-for-toddlers-e1519348310933.jpg",
-    name: "Scavenger Hunt",
-    description: "good for food, vegetable and fruit ",
-  ),
-  Modelitem(
-      name:
-          "mug lk maxLines: 2 maxLines: 2 maxLines: 2 maxLines: 2 maxLines: 2",
-      imageForcard:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQX7FRHnU1AvmU1a-_BdEX_NGunyp_dj0gxLmkinLMxCg4HBZO7WewOnM_GmikMwhUnLA&usqp=CAU",
-      description: "for watirv ds"),
-];
-
-class _ExchangeScreenState extends State<ExchangeScreen> {
-  // ignore: non_constant_identifier_names
-  late String Search;
+class _DonationForMainScreenState extends State<DonationForMainScreen> {
   @override
   Widget build(BuildContext context) {
+    String Search;
+
     return SafeArea(
       child: Scaffold(
         // ignore: prefer_const_literals_to_create_immutables
@@ -91,7 +33,7 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               FloatingActionButton(
-                                  backgroundColor: ColorForDesign().green,
+                                  backgroundColor: ColorForDesign().litegreen,
                                   child: const Icon(
                                     Icons.arrow_back,
                                     color: ColorForDesign.yellowwhite,
@@ -109,13 +51,15 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
                           child: Container(
                               height: 50,
                               decoration: BoxDecoration(
-                                  color: ColorForDesign().green,
+                                  color: ColorForDesign().litegreen,
                                   borderRadius:
                                       BorderRadiusDirectional.circular(20)),
                               child: const Center(
                                   child: Text(
-                                "Exchange",
-                                style: TextStyle(fontSize: 20),
+                                "Donation",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: ColorForDesign.yellowwhite),
                               ))),
                         ))
                       ],
@@ -187,10 +131,6 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
                             describtion: itemList[i].description,
                             imageses: itemList[i].imageForcard,
                             text: itemList[i].name);
-                        //  CardDesignForitem(
-                        //     itemDescription: itemList[i].description,
-                        //     itemName: itemList[i].name,
-                        //     itmeImage: itemList[i].imageForcard);
                       }))
             ],
           ),
@@ -200,58 +140,63 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
   }
 }
 
-class CardDesignForitem extends StatefulWidget {
-  String itemName;
-  String itemDescription;
-  String itmeImage;
-  CardDesignForitem(
-      {required this.itemDescription,
-      required this.itemName,
-      required this.itmeImage});
-
-  @override
-  _CardDesignForitemState createState() => _CardDesignForitemState();
+class Modelitem {
+  late String name;
+  late String imageForcard;
+  late String description;
+  Modelitem(
+      {required this.description,
+      required this.imageForcard,
+      required this.name});
 }
 
-class _CardDesignForitemState extends State<CardDesignForitem> {
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: ColorForDesign.yellowwhite,
-      elevation: 12,
-      shadowColor: ColorForDesign().darkgreen,
-      child: GridTile(
-        header: Container(
-          color: ColorForDesign().green,
-          height: 30,
-          child: Center(
-            child: Text(
-              widget.itemName,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
-            ),
-          ),
-        ),
-        footer: Container(
-          color: ColorForDesign().green,
-          child: Container(
-            height: 50,
-            child: Text(
-              "Description : " + widget.itemDescription,
-              textAlign: TextAlign.end,
-            ),
-          ),
-        ),
-        child: Container(
-          child: Image.network(
-            widget.itmeImage,
-            fit: BoxFit.contain,
-          ),
-        ), //just for testing, will fill with image later
-      ),
-    );
-  }
-}
+List<Modelitem> itemList = [
+  Modelitem(
+      name: "T-shirt",
+      imageForcard:
+          'https://i5.walmartimages.com/asr/93a95865-296f-4bf4-b15d-c8709a4ccdff.64a6cc18098dee727fc4ffbf229bb5fb.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+      description: "good material and very nice looking"),
+  Modelitem(
+      name: "back bag",
+      imageForcard:
+          "https://img3.exportersindia.com/product_images/bc-full/dir_110/3270209/leather-backpack-bags-green-colour-1465548.jpg",
+      description:
+          "to put you book items and other things like pencil or pen ,and clothesto put you book items and other things like pencil or pen ,and clothes"),
+  Modelitem(
+    imageForcard:
+        "https://myboredtoddler.com/wp-content/uploads/2018/02/color-recognition-scavenger-hunt-for-toddlers-e1519348310933.jpg",
+    name: "Scavenger Hunt",
+    description: "good for food, vegetable and fruit ",
+  ),
+  Modelitem(
+      name: "mug",
+      imageForcard:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQX7FRHnU1AvmU1a-_BdEX_NGunyp_dj0gxLmkinLMxCg4HBZO7WewOnM_GmikMwhUnLA&usqp=CAU",
+      description: ""),
+  Modelitem(
+      name: "T-shirt",
+      imageForcard:
+          'https://i5.walmartimages.com/asr/93a95865-296f-4bf4-b15d-c8709a4ccdff.64a6cc18098dee727fc4ffbf229bb5fb.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+      description: "good material and very nice looking"),
+  Modelitem(
+      name: "back bag",
+      imageForcard:
+          "https://img3.exportersindia.com/product_images/bc-full/dir_110/3270209/leather-backpack-bags-green-colour-1465548.jpg",
+      description:
+          "to put you book items and other things like pencil or pen ,and clothesto put you book items and other things like pencil or pen ,and clothes"),
+  Modelitem(
+    imageForcard:
+        "https://myboredtoddler.com/wp-content/uploads/2018/02/color-recognition-scavenger-hunt-for-toddlers-e1519348310933.jpg",
+    name: "Scavenger Hunt",
+    description: "good for food, vegetable and fruit ",
+  ),
+  Modelitem(
+      name:
+          "mug lk maxLines: 2 maxLines: 2 maxLines: 2 maxLines: 2 maxLines: 2",
+      imageForcard:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQX7FRHnU1AvmU1a-_BdEX_NGunyp_dj0gxLmkinLMxCg4HBZO7WewOnM_GmikMwhUnLA&usqp=CAU",
+      description: "for watirv ds"),
+];
 
 class cards extends StatelessWidget {
   String text;
@@ -317,7 +262,7 @@ class cards extends StatelessWidget {
                                     Text(
                                       "describtion" + describtion,
                                       maxLines: 2,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 14,
                                       ),
                                     ),
@@ -339,36 +284,3 @@ class cards extends StatelessWidget {
     );
   }
 }
-// Card(
-//       color: ColorForDesign.yellowwhite,
-//       elevation: 5.0,
-//       margin: EdgeInsets.all(8.0),
-//       child: Column(
-//         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//         children: [
-//           Container(
-//             child: Image.network(
-//               imageses,
-//               width: MediaQuery.of(context).size.width / 2,
-//               height: MediaQuery.of(context).size.width / 2.3,
-//               fit: BoxFit.fill,
-//             ),
-//           ),
-//           Column(
-//             children: [
-//               Container(
-//                 child: Text(text, overflow: TextOverflow.ellipsis),
-//                 margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
-//               ),
-//               Align(
-//                 alignment: Alignment.centerLeft,
-//                 child: Container(
-//                     margin: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
-//                     child: Text("describtion : " + describtion, maxLines: 2)),
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
- 

@@ -1,5 +1,7 @@
 import 'package:exchange/colors.dart';
-import 'package:exchange/screen/exchange.dart';
+import 'package:exchange/widgets/exchang_for_nv_bar/conferm_exchange.dart';
+import 'package:exchange/widgets/exchang_for_nv_bar/exchange_for_all.dart';
+import 'package:exchange/widgets/exchang_for_nv_bar/my_exchange.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -10,15 +12,24 @@ class ExChangForAll extends StatefulWidget {
   _ExChangForAllState createState() => _ExChangForAllState();
 }
 
+late int currentPage;
+
 List WidgetForShow = [
   ExchangeScreen(),
-  ExchangeScreen(),
-  ExchangeScreen(),
-  ExchangeScreen(),
+  MyExchange(),
+  ConfermExchang(),
 ];
-int currentPage = 0;
 
 class _ExChangForAllState extends State<ExChangForAll> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    setState(() {
+      currentPage = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +47,6 @@ class _ExChangForAllState extends State<ExChangForAll> {
             TabData(
                 iconData: Icons.published_with_changes_rounded,
                 title: "Done Exchang "),
-            TabData(iconData: Icons.trending_down, title: "Metaphor")
           ],
           onTabChangedListener: (position) {
             setState(() {
