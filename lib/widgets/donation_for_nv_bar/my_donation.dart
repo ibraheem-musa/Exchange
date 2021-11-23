@@ -21,7 +21,7 @@ class _MyDonationState extends State<MyDonation> {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 2 / 3,
+                childAspectRatio: 1.9 / 3,
               ),
               itemBuilder: (_, index) {
                 return cards(
@@ -36,7 +36,7 @@ class _MyDonationState extends State<MyDonation> {
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 50),
             child: FloatingActionButton(
-                backgroundColor: ColorForDesign().green,
+                backgroundColor: ColorForDesign().litegreen,
                 child: const Icon(
                   Icons.arrow_back,
                   color: ColorForDesign.yellowwhite,
@@ -83,51 +83,44 @@ class cards extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                color: ColorForDesign.yellowwhite,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  text,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22,
-                                  ),
-                                ),
-                              ),
+              Expanded(
+                child: Container(
+                  color: ColorForDesign.yellowwhite,
+                  width: double.infinity,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Text(
+                            text,
+                            maxLines: 1,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 22,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: OutlinedButton(
-                                style: OutlinedButton.styleFrom(
-                                  primary: ColorForDesign().litegreen,
-                                  backgroundColor: ColorForDesign().litegreen,
-                                ),
-                                onPressed: () {},
-                                child: const Text("Donated by",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: ColorForDesign.yellowwhite)),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: OutlinedButton(
+                          style: OutlinedButton.styleFrom(
+                            primary: ColorForDesign().litegreen,
+                            backgroundColor: ColorForDesign().litegreen,
+                          ),
+                          onPressed: () {},
+                          child: const Text("Donated by",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  color: ColorForDesign.yellowwhite)),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

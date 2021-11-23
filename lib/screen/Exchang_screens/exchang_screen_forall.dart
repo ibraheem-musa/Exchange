@@ -46,7 +46,7 @@ class _ExChangForAllState extends State<ExChangForAll> {
                 iconData: Icons.change_circle_outlined, title: "My Exchang "),
             TabData(
                 iconData: Icons.published_with_changes_rounded,
-                title: "Done Exchang "),
+                title: "Conferm"),
           ],
           onTabChangedListener: (position) {
             setState(() {

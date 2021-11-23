@@ -231,50 +231,42 @@ class cards extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                color: ColorForDesign.yellowwhite,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 16, top: 8, bottom: 8),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  color: ColorForDesign.yellowwhite,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16, bottom: 8),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          text,
+                          maxLines: 1,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Wrap(
                             children: <Widget>[
                               Text(
-                                text,
-                                maxLines: 1,
-                                textAlign: TextAlign.left,
+                                "describtion" + describtion,
+                                maxLines: 2,
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 22,
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4),
-                                child: Wrap(
-                                  children: <Widget>[
-                                    Text(
-                                      "describtion" + describtion,
-                                      maxLines: 2,
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
+                                  fontSize: 14,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ],

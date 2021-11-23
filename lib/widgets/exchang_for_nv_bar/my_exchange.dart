@@ -83,51 +83,37 @@ class cards extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                color: ColorForDesign.yellowwhite,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  text,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: OutlinedButton(
-                                style: OutlinedButton.styleFrom(
-                                  primary: ColorForDesign().litegreen,
-                                  backgroundColor: ColorForDesign().litegreen,
-                                ),
-                                onPressed: () {},
-                                child: const Text("Donated by",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color: ColorForDesign.yellowwhite)),
-                              ),
-                            ),
-                          ],
+              Expanded(
+                child: Container(
+                  color: ColorForDesign.yellowwhite,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          text,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          primary: ColorForDesign().litegreen,
+                          backgroundColor: ColorForDesign().litegreen,
+                        ),
+                        onPressed: () {},
+                        child: const Text("Donated by",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: ColorForDesign.yellowwhite)),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

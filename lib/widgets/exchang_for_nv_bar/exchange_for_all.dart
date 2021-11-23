@@ -1,4 +1,5 @@
 import 'package:exchange/colors.dart';
+import 'package:exchange/main.dart';
 import 'package:flutter/material.dart';
 
 class ExchangeScreen extends StatefulWidget {
@@ -40,7 +41,7 @@ List<Modelitem> itemList = [
       name: "mug",
       imageForcard:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQX7FRHnU1AvmU1a-_BdEX_NGunyp_dj0gxLmkinLMxCg4HBZO7WewOnM_GmikMwhUnLA&usqp=CAU",
-      description: ""),
+      description: "fffffffffff"),
   Modelitem(
       name: "T-shirt",
       imageForcard:
@@ -183,10 +184,22 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
                         childAspectRatio: 2 / 3,
                       ),
                       itemBuilder: (_, i) {
-                        return cards(
-                            describtion: itemList[i].description,
-                            imageses: itemList[i].imageForcard,
-                            text: itemList[i].name);
+                        return GestureDetector(
+                          onTap: () {
+                            List<dynamic> widgetsSend = [
+                              itemList[i].description,
+                              itemList[i].imageForcard,
+                              itemList[i].name
+                            ];
+                            Navigator.pushNamed(
+                                context, nameroute.nameRouote_Details,
+                                arguments: widgetsSend);
+                          },
+                          child: cards(
+                              describtion: itemList[i].description,
+                              imageses: itemList[i].imageForcard,
+                              text: itemList[i].name),
+                        );
                         //  CardDesignForitem(
                         //     itemDescription: itemList[i].description,
                         //     itemName: itemList[i].name,
@@ -233,47 +246,42 @@ class cards extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                color: ColorForDesign.yellowwhite,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 16, top: 8, bottom: 8),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  color: ColorForDesign.yellowwhite,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 16, bottom: 8),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          text,
+                          maxLines: 1,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Wrap(
                             children: <Widget>[
                               Text(
-                                text,
-                                maxLines: 1,
-                                textAlign: TextAlign.left,
+                                "describtion" + describtion,
+                                maxLines: 2,
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 22,
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 8, bottom: 8),
-                                child: Text(
-                                  "describtion" + describtion,
-                                  maxLines: 2,
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                  ),
+                                  fontSize: 14,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ],
@@ -283,6 +291,7 @@ class cards extends StatelessWidget {
     );
   }
 }
+
 // Card(
 //       color: ColorForDesign.yellowwhite,
 //       elevation: 5.0,
@@ -315,4 +324,3 @@ class cards extends StatelessWidget {
 //         ],
 //       ),
 //     );
- 

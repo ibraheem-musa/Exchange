@@ -36,7 +36,7 @@ class _ConfermDonationState extends State<ConfermDonation> {
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 50),
             child: FloatingActionButton(
-                backgroundColor: ColorForDesign().green,
+                backgroundColor: ColorForDesign().litegreen,
                 child: const Icon(
                   Icons.arrow_back,
                   color: ColorForDesign.yellowwhite,
@@ -70,7 +70,7 @@ class cards extends StatelessWidget {
           boxShadow: <BoxShadow>[
             BoxShadow(
               color: Colors.grey,
-              // offset: const Offset(3, 3),
+              offset: const Offset(3, 3),
               blurRadius: 16,
             ),
           ],
@@ -86,67 +86,54 @@ class cards extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Container(
-                color: ColorForDesign.yellowwhite,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        child: Column(
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  color: ColorForDesign.yellowwhite,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Center(
+                        child: Text(
+                          text,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  text,
-                                  maxLines: 1,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 22,
-                                  ),
-                                ),
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.done,
+                                size: 35,
+                                color: ColorForDesign().litegreen,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Container(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.done,
-                                        size: 35,
-                                        color: ColorForDesign().litegreen,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 25,
-                                    ),
-                                    IconButton(
-                                      splashColor: ColorForDesign().litegreen,
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.cancel,
-                                        size: 35,
-                                        color: Colors.red,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
+                            const SizedBox(
+                              width: 25,
                             ),
+                            IconButton(
+                              splashColor: ColorForDesign().litegreen,
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.cancel,
+                                size: 35,
+                                color: Colors.red,
+                              ),
+                            )
                           ],
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

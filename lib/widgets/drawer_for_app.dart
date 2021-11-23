@@ -1,5 +1,11 @@
 import 'package:exchange/colors.dart';
+import 'package:exchange/loclaization.dart';
+import 'package:exchange/main.dart';
+import 'package:exchange/screen/drower_screen/contact_us.dart';
+import 'package:exchange/screen/drower_screen/privacy_and_policy.dart';
+import 'package:exchange/screen/drower_screen/terms_and_condition.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DrawerForAPP extends StatefulWidget {
   const DrawerForAPP({Key? key}) : super(key: key);
@@ -9,6 +15,23 @@ class DrawerForAPP extends StatefulWidget {
 }
 
 class _DrawerForAPPState extends State<DrawerForAPP> {
+  late String lang;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    getPref();
+  }
+
+  Future getPref() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      lang = sharedPreferences.getString("lang")!;
+      sharedPreferences.commit();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -59,9 +82,6 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
 
                   child: Stack(
                     children: [
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8),
@@ -70,22 +90,6 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
                             child: Image.asset('assets/LOGOexchange.png'),
                           ),
                         ),
-                      ),
-                      //   ],
-                      // ),
-                      Positioned(
-                        right: 5,
-                        child: IconButton(
-                            onPressed: () {
-                              // Navigator.pop(context);
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) =>
-                              //             SettingScreen()
-                              //             ));
-                            },
-                            icon: Icon(Icons.settings)),
                       ),
                     ],
                   ),
@@ -107,33 +111,21 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
               ],
             ),
           ),
-          ListtileRForListdrwer(
-            iconForListTile: Icons.image,
-            // opject: Galary(),
-            text: "gallery",
-          ),
-          ListtileRForListdrwer(
-            iconForListTile: Icons.checklist_rounded,
-            // opject: OrdersHistory(),
-            text: "ordersHistory",
-          ),
+
           ListtileRForListdrwer(
             iconForListTile: Icons.message_rounded,
-            // opject: ContactUs(),
+            opject: ContactUs(),
             text: "ContactUs",
           ),
-          // ListtileRForListdrwer(
-          //   opject: Franchise(),
-          //   text: "franchise",
-          // ),
+
           ListtileRForListdrwer(
             iconForListTile: Icons.privacy_tip,
-            // opject: PrivacyAndPolicy(),
+            opject: PrivacyAndPolicy(),
             text: "PrivacyandPolicy",
           ),
           ListtileRForListdrwer(
             iconForListTile: Icons.assignment_outlined,
-            // opject: TermsAndConditions(),
+            opject: TermsAndConditions(),
             text: "TermsandCondition",
           ),
           Column(
@@ -143,12 +135,14 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
                   Icons.language,
                   color: ColorForDesign().green,
                 ),
-                title: const Text(
-                  "languageChange",
+                title: Text(
+                  AppLocalizations.of(context)!
+                      .translate("languageChange")
+                      .toString(),
                   style: TextStyle(fontSize: 15),
                 ),
                 onTap: () {
-                  // case4();
+                  case4();
                 },
               ),
               const Divider(
@@ -168,6 +162,15 @@ class _DrawerForAPPState extends State<DrawerForAPP> {
         ],
       ),
     );
+  }
+
+  case4() {
+    if (lang.toString() == "en") {
+      MyApp.setLocale(context, Locale('ar', ''));
+    } else {
+      MyApp.setLocale(context, Locale('en', ''));
+    }
+    Navigator.pop(context);
   }
 }
 
